@@ -4,17 +4,17 @@ import org.joda.time.{DateTime, Duration}
 import org.joda.time.format.DateTimeFormat
 
 sealed trait PaymentCycle {
-  def perform(annualValue: Int): Double
+  def getValue(annualValue: Double): Double
 }
 
 case object Monthly extends PaymentCycle
 {
-  override def perform(annualValue: Int): Double = annualValue / 12
+  override def getValue(annualValue: Double): Double = annualValue / 12
 }
 
 case object Fortnightly extends PaymentCycle
 {
-  override def perform(annualValue: Int): Double = annualValue / 26
+  override def getValue(annualValue: Double): Double = annualValue / 26
 }
 
 case class PaymentPeriod(paymentCycle: PaymentCycle, displayString: String)

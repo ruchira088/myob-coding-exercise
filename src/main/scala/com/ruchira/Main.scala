@@ -6,6 +6,6 @@ object Main
 {
   def main(args: Array[String]): Unit =
   {
-    println(parseInput(readInput("input.txt")))
+    println(parseInput(readInput("input.txt")).map(PaySlip.createPaySlip))
   }
 }
