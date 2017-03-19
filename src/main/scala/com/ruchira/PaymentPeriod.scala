@@ -30,15 +30,14 @@ object PaymentPeriod
   def getPaymentCycle(startDate: DateTime, endDate: DateTime): PaymentCycle =
   {
     new Duration(startDate, endDate).getStandardDays match {
-      case days if days > 27 && days < 32 => Monthly
+      case days if days > 26 && days < 32 => Monthly
       case days if days > 10 && days < 15 => Fortnightly
-      case _ => throw new Error("Unable to determine payment cycle")
+      case days => throw new Error(s"Unable to determine payment cycle: ${days}")
     }
   }
 
   def parse(inputString: String): PaymentPeriod =
   {
-
     def parseDate(dateString: String, dateFormats: List[String]): DateTime =
     {
       if(dateFormats.isEmpty)
