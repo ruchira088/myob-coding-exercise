@@ -9,11 +9,23 @@ class TaxCalculatorTest extends FunSpec
   {
     it("calculateTax(Double): Double")
     {
-      assertResult(11047)(Math.round(calculateTax(60000)))
-      assertResult(24947)(Math.round(calculateTax(100000)))
-      assertResult(0)(calculateTax(18200))
-      assertResult(0.19)(calculateTax(18201))
-      assertResult(54547)(Math.round(calculateTax(180000)))
+      val TEST_VALUES = List(
+        (60000, 11047),
+        (100000, 24947),
+        (18200, 0),
+        (18201, 0.19),
+        (180000, 54547),
+        (180001, 54547.45),
+        (37000, 3572),
+        (80000, 17547),
+        (1000000, 423547)
+      )
+
+      TEST_VALUES.foreach(value =>
+      {
+        val(income, tax) = value
+        assertResult(tax)(calculateTax(income))
+      })
     }
   }
 

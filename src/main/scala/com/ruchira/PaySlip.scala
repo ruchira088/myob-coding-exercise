@@ -6,11 +6,13 @@ case class PaySlip(
     incomeTax: Int,
     netIncome: Int,
     superAmount: Int
-)
+) {
+
+}
 
 object PaySlip
 {
-  def createPaySlip(input: Input): PaySlip =
+  def createPaySlip(input: InputRow): PaySlip =
   {
     PaySlip(Name("", ""), 0, 0, 0, 0)
   }
