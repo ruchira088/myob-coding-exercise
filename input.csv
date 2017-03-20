@@ -1,4 +1,4 @@
-Input (first name, last name, annual salary, super rate (%), payment start date):
-David,Rudd,60050,9%,01 March – 31 March
-Ryan,Chen,52000,10%,01 March – 14 March
-John,Smith,105000,9%,20 December 2016 - 19 January 2017
+Input (first name, annual salary, super rate (%), payment start date, last name):
+David,60050,9%,01 March – 31 March,Rudd
+Ryan,52000,10%,01 March – 14 March,Chen
+John,105000,9%,20 December 2016 - 19 January 2017,Smith

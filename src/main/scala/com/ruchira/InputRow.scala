@@ -9,9 +9,11 @@ case class InputRow(
 
 object InputRow
 {
-  def parse(line: String): InputRow =
+  def defaultParser(line: String) = line.split(",").toList
+
+  def parse(line: String, lineParser: String => List[String] = defaultParser): InputRow =
   {
-    val List(firstName, lastName, annualSalary, superRate, paymentStartDate) = line.split(",").toList
+    val List(firstName, lastName, annualSalary, superRate, paymentStartDate) = lineParser(line)
 
     val name = Name(firstName, lastName)
 
