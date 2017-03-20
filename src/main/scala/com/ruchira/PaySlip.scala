@@ -14,8 +14,11 @@ case class PaySlip(
 
 object PaySlip
 {
-  def header = "Output (name, pay period, gross income, income tax, net income, super):"
+  def HEADER = "Output (name, pay period, gross income, income tax, net income, super):"
 
+  /**
+    * Creates a PaySlip from an InputRow
+    */
   def createPaySlip(inputRow: InputRow): PaySlip =
   {
     val InputRow(name, annualSalary, superRate, paymentPeriod) = inputRow

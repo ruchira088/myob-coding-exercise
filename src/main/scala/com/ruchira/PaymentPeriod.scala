@@ -25,8 +25,13 @@ case class PaymentPeriod(paymentCycle: PaymentCycle, displayString: String)
 object PaymentPeriod
 {
   val DATE_SEPARATOR_REGEX = "–|-"
+
+  /** Supported date formats */
   val DATE_FORMAT_PATTERNS = List("dd MMMM yyyy", "dd MMMM")
 
+  /**
+    * Determines the PaymentCycle (Monthly or Fortnightly)
+    */
   def getPaymentCycle(startDate: DateTime, endDate: DateTime): PaymentCycle =
   {
     new Duration(startDate, endDate).getStandardDays match {
@@ -36,8 +41,14 @@ object PaymentPeriod
     }
   }
 
+  /**
+    * Parses a String and returns a PaymentPeriod
+    */
   def parse(inputString: String): PaymentPeriod =
   {
+    /**
+      * Parses a String to a DateTime
+      */
     def parseDate(dateString: String, dateFormats: List[String]): DateTime =
     {
       if(dateFormats.isEmpty)

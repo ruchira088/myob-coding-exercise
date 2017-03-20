@@ -12,6 +12,9 @@ object TaxCalculator
     TaxBracket(0, 0)
   )
 
+  /**
+    * Calculates the tax amount for a given income
+    */
   def calculateTax(amount: Double): Double =
   {
     case class TaxStep(taxAmount: Double, remainingAmount: Double)
