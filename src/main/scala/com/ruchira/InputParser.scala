@@ -2,7 +2,7 @@ package com.ruchira
 
 object InputParser
 {
-  val headerColumnNames = List(
+  val HEADER_COLUMN_NAMES = List(
     "first name",
     "last name",
     "annual salary",
@@ -15,7 +15,7 @@ object InputParser
     val header = inputHeader.substring(inputHeader.indexOf("(") + 1, inputHeader.lastIndexOf(")"))
     val headerColumns = header.split(",").toList.map( _.trim )
 
-    val indexList: List[Int] = headerColumnNames.map(headerColumns.indexOf(_))
+    val indexList: List[Int] = HEADER_COLUMN_NAMES.map(headerColumns.indexOf(_))
 
     def parser(line: String): List[String] =
     {

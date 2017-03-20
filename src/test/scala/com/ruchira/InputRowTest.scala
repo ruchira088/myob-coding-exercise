@@ -1,6 +1,7 @@
 package com.ruchira
 
 import org.scalatest.FunSpec
+import com.ruchira.Utils.testRunner
 
 class InputRowTest extends FunSpec
 {
@@ -17,11 +18,7 @@ class InputRowTest extends FunSpec
           InputRow(Name("Adam", "Ant"), 50000, 0.12, PaymentPeriod(Fortnightly, "01 January - 14 January")))
       )
 
-      TEST_VALUES.foreach(entry =>
-      {
-        val (input, output) = entry
-        assertResult(output)(InputRow.parse(input))
-      })
+      testRunner(TEST_VALUES, (input: String) => InputRow.parse(input))
     }
   }
 }
