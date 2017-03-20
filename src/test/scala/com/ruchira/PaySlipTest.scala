@@ -1,6 +1,7 @@
 package com.ruchira
 
 import org.scalatest.FunSpec
+import com.ruchira.Utils.testRunner
 
 class PaySlipTest extends FunSpec
 {
@@ -19,11 +20,8 @@ class PaySlipTest extends FunSpec
           "Bob Bat,01 March - 14 March,3846,960,2886,38")
       )
 
-      TEST_VALUES.foreach(entry =>
-      {
-        val (input, output) = entry
-        assertResult(output)(PaySlip.createPaySlip(input).toString)
-      })
+      testRunner(TEST_VALUES, (inputRow: InputRow) => PaySlip.createPaySlip(inputRow).toString)
+
     }
   }
 }

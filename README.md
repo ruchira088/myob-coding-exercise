@@ -4,7 +4,19 @@
 
 The input is read from `input.csv` which is in the root directory of the project.
 
-Example
+The header keys are the following,
+
+```text
+first name
+last name
+annual salary
+super rate (%)
+payment start date
+```
+
+The order of the header keys can be changed.
+
+#### Example
 
 ```text
 Input (first name, last name, annual salary, super rate (%), payment start date):
@@ -12,6 +24,14 @@ David,Rudd,60050,9%,01 March – 31 March
 Ryan,Chen,52000,10%,01 March – 14 March
 John,Smith,105000,9%,20 December 2016 - 19 January 2017
 ```
+
+```text
+Input (annual salary, super rate (%), payment start date, first name, last name):
+60050,9%,01 March – 31 March,David,Rudd
+52000,10%,01 March – 14 March,Ryan,Chen
+105000,9%,20 December 2016 - 19 January 2017,John,Smith
+```
+
 The payment period MUST have one of the following formats
 
 ```text

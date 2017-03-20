@@ -1,6 +1,7 @@
 package com.ruchira
 
 import org.scalatest.FunSpec
+import com.ruchira.Utils.testRunner
 
 class PaymentPeriodTest extends FunSpec
 {
@@ -16,11 +17,7 @@ class PaymentPeriodTest extends FunSpec
 
     it("parse(String): PaymentPeriod")
     {
-      TEST_VALUES.foreach(entry =>
-      {
-        val(input, output) = entry
-        assertResult(output)(PaymentPeriod.parse(input).paymentCycle)
-      })
+      testRunner(TEST_VALUES, (input: String) => PaymentPeriod.parse(input).paymentCycle)
     }
   }
 }

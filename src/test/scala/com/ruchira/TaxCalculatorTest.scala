@@ -1,7 +1,7 @@
 package com.ruchira
 
 import org.scalatest.FunSpec
-import com.ruchira.TaxCalculator.calculateTax
+import com.ruchira.Utils.testRunner
 
 class TaxCalculatorTest extends FunSpec
 {
@@ -9,7 +9,7 @@ class TaxCalculatorTest extends FunSpec
   {
     it("calculateTax(Double): Double")
     {
-      val TEST_VALUES = List(
+      val TEST_VALUES: List[(Double, Double)] = List(
         (60000, 11047),
         (100000, 24947),
         (18200, 0),
@@ -21,11 +21,7 @@ class TaxCalculatorTest extends FunSpec
         (1000000, 423547)
       )
 
-      TEST_VALUES.foreach(value =>
-      {
-        val(income, tax) = value
-        assertResult(tax)(calculateTax(income))
-      })
+      testRunner(TEST_VALUES, TaxCalculator.calculateTax)
     }
   }
 
